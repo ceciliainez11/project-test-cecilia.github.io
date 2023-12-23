@@ -1,0 +1,369 @@
+/* Universal Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Header Styling */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #ED6A31;
+  padding: 10px;
+  transition: background-color 0.3s ease, padding 0.3s ease;
+  z-index: 50;
+}
+
+.header.transparent {
+  background-color: rgba(236, 98, 39, 0);
+  padding: 5px;
+}
+
+.post-date {
+  font-size: 12px;
+  color: #888;
+}
+
+.post-item img {
+  width: 100%;
+  height: 200px; 
+  object-fit: cover;
+}
+
+/* New styles for title on card */
+.post-content p {
+  max-height: 3em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Banner Styles */
+.banner {
+  position: relative;
+  overflow: hidden;
+  height: 600px; 
+}
+
+.parallax-container {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+}
+
+.parallax-image {
+  width: 100%;
+  height: auto;
+  transform: translateY(-50%);
+  transition: transform 0.3s ease-out;
+}
+
+.banner-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+}
+
+.banner-text h2 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+.banner-text p {
+  font-size: 1.2em;
+}
+
+/* Add a pseudo-element for the slanted area */
+.banner::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 30%;
+  background: linear-gradient(to bottom right, transparent 49.5%, #fff 50%, #fff 100%);
+  transform-origin: 0 100%;
+  transform: skewY(0deg); 
+  z-index: 1; 
+}
+
+/* Parallax effect */
+.parallax-image::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 2;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .banner-text h2 {
+    font-size: 2em;
+  }
+
+  .banner-text p {
+    font-size: 1em;
+  }
+}
+
+
+/* Parallax effect */
+.parallax-image::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .banner-text h2 {
+    font-size: 2em;
+  }
+
+  .banner-text p {
+    font-size: 1em;
+  }
+}
+
+/* Navigation Styling */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav img {
+  margin-right: 20px;
+  width: 100px;
+}
+
+.nav-links ul {
+  list-style: none;
+  display: flex;
+  margin-left: auto;
+}
+
+.nav-links ul li {
+  margin-right: 15px;
+}
+
+.nav-links ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 13px;
+  transition: color 0.3s ease;
+}
+
+.nav-links ul li a:hover {
+  color: #ffc107; /* Change color on hover */
+}
+
+/* Filter Box Styling */
+.filter-box {
+  display: flex;
+  align-items: center;
+}
+
+.filter-box label,
+.filter-box select {
+  margin-right: 10px;
+  font-size: 14px;
+  color: #555;
+}
+
+.filter-box select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  color: #555;
+  cursor: pointer;
+}
+
+/* Button Styling */
+.filter-box select:hover {
+  background-color: #f5f5f5;
+}
+
+.filter-box label:hover {
+  color: #2ecc71;
+}
+
+/* Apply hover effect to labels for better user experience */
+.filter-box label:hover {
+  color: #2ecc71;
+}
+
+/* Post Item Styling */
+.post-list {
+  width: 100%;
+  display: grid;
+  gap: 20px;
+  justify-content: center;
+  flex: 0 0 calc(25% - 10px); 
+  margin-bottom: 20px;
+}
+
+.post-item {
+  width: 320px;
+  box-sizing: border-box;
+  overflow: hidden;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.post-item:hover {
+  transform: translateY(-5px);
+}
+
+.post-item img {
+  width: 100%;
+  height: 200px;
+  border-bottom: 1px solid #ddd;
+  transition: transform 0.3s ease;
+}
+
+.post-item:hover img {
+  transform: scale(1.1); /* Enlarge image on hover */
+}
+
+.post-item .post-content {
+  padding: 20px;
+}
+
+.post-item h3 {
+  margin: 10px 0;
+  font-size: 1em;
+  text-align: left;
+  color: #333;
+}
+
+.post-item p {
+  line-height: 1.5;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+/* Pagination Styling */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.pagination-info {
+  color: #555;
+  order: 4;
+  font-size: 14px; /* Adjust font size */
+}
+
+.page-num {
+  padding: 8px 12px; /* Adjust padding */
+  margin: 0 5px;
+  text-decoration: none;
+  background-color: rgba(236, 98, 39, 0.9);
+  color: #fff;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border: 1px solid rgba(236, 98, 39, 0.9);
+  font-size: 14px; /* Adjust font size */
+}
+
+.page-num:hover {
+  background-color: rgba(236, 98, 39, 0.9);
+}
+
+.page-num:first-child {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.page-num:last-child {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.container-page{
+  justify-content: center;
+margin-bottom: 60px;
+}
+
+
+/* Grid Container Styling */
+.grid-container {
+  display: flex;
+  width: 90%;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  margin: 50px auto 20px;
+}
+
+.showing-text {
+  font-size: 14px;
+  color: #555;
+}
+
+/* Link Styling */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Responsive Styling */
+@media screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .filter-box {
+    margin-top: 10px;
+  }
+}
+
+/* Footer Styling */
+.footer {
+  background-color: rgba(236, 98, 39, 0.9);
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+}
+
+/* Responsive Styling */
+@media screen and (max-width: 768px) {
+  /* Add responsive styles if needed */
+}
